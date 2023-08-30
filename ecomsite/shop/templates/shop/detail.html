@@ -1,0 +1,36 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+<section class="u-align-center u-clearfix current-section u-block-7f91-1" custom-posts-hash="[I,T]" data-posts-content="[{'images':[[540,514]],'maps':[],'videos':[],'icons':[],'textWidth':512,'textHeight':514,'id':1,'headingProp':'h2','textProp':'text'}]" data-id="7f91" data-style="product-2" id="sec-4496" data-source="Sketch" style="">
+  <div class="u-clearfix u-sheet u-valign-middle u-block-7f91-2" style="min-height: 730px">
+    <div class="u-container-style u-expanded-width u-product u-block-control u-block-7f91-3" style="min-height: 574px; height: auto; margin-top: 60px; margin-right: auto; margin-bottom: 0; margin-left: 0" data-block="11">
+      <div class="u-container-layout u-valign-middle-lg u-valign-middle-xl u-valign-top-sm u-valign-top-xs u-block-7f91-4" style="padding-top: 30px; padding-right: 0; padding-bottom: 30px; padding-left: 30px" data-container-layout-dom="1">
+        <img alt="" class="u-expanded-width-sm u-expanded-width-xs u-image u-image-default u-product-control u-block-control u-block-7f91-5" src="{{product_object.image}}" style="width: 540px; height: 514px; margin-top: 0; margin-right: auto; margin-bottom: 0; margin-left: 0" data-block="12" data-block-type="ProductImage">
+        <div class="u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-md u-align-left-xl u-container-style u-expanded-width-sm u-expanded-width-xs u-group u-shape-rectangle u-block-control u-block-7f91-6" style="width: 512px; min-height: 514px; margin-top: -514px; margin-right: 0; margin-bottom: 0; margin-left: auto" data-block="13">
+          <div class="u-container-layout u-valign-middle u-block-7f91-7" style="padding-top: 30px; padding-bottom: 30px; padding-left: 30px; padding-right: 30px" data-container-layout-dom="2">
+            <div class="u-border-3 u-border-palette-4-base u-line u-line-horizontal u-block-control u-block-7f91-12" style="width: 43px; height: 3px; transform-origin: left center; margin-top: 0; margin-right: auto; margin-bottom: 0; margin-left: 0" data-block="14"></div><h2 class="u-custom-font u-font-merriweather u-product-control u-text u-block-control u-block-7f91-8" style="font-size: 3rem; font-weight: 700; margin-top: 20px; margin-right: 60px; margin-bottom: 0; margin-left: 0" data-block="15">
+              <div class="u-product-title-link" id="nm{{product_object.id}}" href="#">{{product_object.title}}</div>
+            </h2>
+            <div class="u-custom-font u-font-merriweather u-product-control u-product-price u-block-control u-block-7f91-10" style="margin-top: 22px; margin-right: auto; margin-bottom: 0; margin-left: 0" data-block="16">
+              <div class="u-price-wrapper u-spacing-10"><b>Price</b>
+                <div class="u-hide-price u-old-price" style="text-decoration: line-through !important;" wfd-invisible="true">${{product_object.price}}</div>
+                <div class="u-price u-text-palette-4-base" id="price{{product_object.id}}"  style="font-size: 1.5rem; font-weight: 700;">{{product_object.discount_price}}</div>
+              </div>
+            </div>
+            <div class="u-product-control u-product-desc u-text u-text-default u-block-control u-block-7f91-9" style="font-weight: 400; font-size: 1.125rem; margin-top: 18px; margin-right: auto; margin-bottom: 0; margin-left: 0" data-block="17">
+              <p>
+                {{product_object.description}}
+              </p>
+            </div>
+            <button id="{{product_object.id}}" class="btn atc btn-warning">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+
+{% endblock %}

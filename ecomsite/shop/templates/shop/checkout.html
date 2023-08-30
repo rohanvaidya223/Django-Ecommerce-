@@ -1,0 +1,89 @@
+
+{% extends 'shop/base.html' %}
+
+{% block content %}
+
+<body>
+    <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+            
+                <ul class="list-group" id="item_list">
+                   
+                  </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="items" id="items">
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" id="inputEmail4" placeholder="Enter Full Name">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPassword4">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" id="inputPassword4" placeholder="Your Email">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputAddress">Address</label>
+                      <input type="text" id="address" name="address" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                    </div>
+                    
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputCity">City</label>
+                        <input type="text" id="city" name="city" class="form-control" id="inputCity">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="inputState">State</label>
+                        <input type="text" id="state" name="state" class="form-control" id="inputCity">
+                      </div>
+                      <div class="form-group col-md-2">
+                        <label for="inputZip">Zip</label>
+                        <input type="text" id="zipcode" name="zipcode" class="form-control" id="inputZip">
+                      </div>
+                      <div class="form-group col-md-2">
+                        <label for="inputZip">Amount to be PAID</label>
+                        <input readonly="" type="text" class="form-control" name="total" id="total">
+                      </div>
+                    </div>
+                    
+                    <a href="/paymentform" class="btn btn-primary">Place Your Order</a>
+                  </form>   
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    if(localStorage.getItem('cart')==null){
+        var cart={};
+    }
+    else{
+        cart=JSON.parse(localStorage.getItem('cart'));
+    }
+    let total=0;
+    for(item in cart){
+        let name=cart[item][1];
+        let quantity=cart[item][0];
+        let price=cart[item][2];
+        total+=cart[item][2];
+
+
+        itemString = `<li class="list-group-item"><span class="">${quantity} of </span>${name} <span class="badge badge-warning badge-pill">${price}</span></li>`;
+        
+        $('#item_list').append(itemString);
+    }
+    totalPrice=`<li class="list-group-item d-flex justify-content-between align-items-center"><b>Your Total: </b>
+          ${total}
+          </li>`
+    
+    $('#total').val(total);
+    $('#item_list').append(totalPrice);
+    $('#items').val(JSON.stringify(cart))
+</script>
+</html>
+{% endblock %}
